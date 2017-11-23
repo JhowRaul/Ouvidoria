@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+ <h1>Ouvidoria Opet</h1> 
+         <div align="center">
+            <h:form id="cidade">
+            <p:panelGrid id="formulario" style="width:75%;">
+                <p:focus context="formulario"/>
+                <f:facet name="header">
+                    <p:row>
+                        <p:column colspan="2" style="font-size:14px">
+                            Consulta de cidades
+                        </p:column>
+                    </p:row>
+                </f:facet>
+                <p:row>
+                    <p:column style="width:30%;text-align:right;">
+                        <h:outputText value="Identificador : " />
+                    </p:column>
+                    <p:column>
+						<h:panelGroup>
+                        <p:inputText id="codigo" required="true" value="#{CidadeVB.codigo}" disabled="#{CidadeVB.edicao}" size="20" label="Código" />
+		       			&nbsp;
+					       <h:commandButton value="Pesquisar" action="#{CidadeVB.consultar}" ajax="false" disabled="#{CidadeVB.edicao}"/>
+						</h:panelGroup>
+                    </p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column style="width:30%;text-align:right;">
+                        <h:outputText  value="País : " />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="pais" disabled="true" value="#{CidadeVB.pais}" size="10" required="true" label="Pais" />
+                    </p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column style="width:30%;text-align:right;">
+                        <h:outputText  value="Estado : " />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="estado" disabled="true" value="#{CidadeVB.estado}" size="50" required="true" label="Estado" />
+                    </p:column>
+                </p:row>
+                
+                <p:row>
+                    <p:column style="width:30%;text-align:right;">
+                        <h:outputText  value="Cidade : " />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="descricao" disabled="true" value="#{CidadeVB.descricao}" size="50" label="descricao" />
+                    </p:column>
+                </p:row>
+                
+                <p:row>
+                       <p:column colspan="2">
+                           <p:messages errorStyle="color:red;margin:8px;" infoStyle="color:blue;margin:8px;" layout="table" />
+                       </p:column>
+                </p:row>
+
+                <p:row>
+                       <p:column colspan="2" style="text-align:center;">
+                           <h:commandButton value="Limpar" action="#{CidadeVB.limpar}" disabled="#{!CidadeVB.edicao}"
+                                            immediate="true"
+                                            ajax="false">
+                              <f:setPropertyActionListener target="#{CidadeVB.tela}" value="consultar" />
+                           </h:commandButton>
+                           &nbsp;
+                           <h:commandButton value="Home" action="/index" immediate="true"/>
+                       </p:column>
+                   </p:row>
+            </p:panelGrid>
+          </h:form>
+        </div>
+</body> 
+</html>

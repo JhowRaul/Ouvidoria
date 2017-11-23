@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+	<h:head>
+	</h:head>
+	<body>
+		<h1>Ouvidoria Opet</h1> 
+		<h:form>
+			<p:menubar>
+				<p:menuitem value="Home" ajax="false" outcome="index"/>
+		        <p:submenu label="Manifestações">
+		            <p:menuitem value="Inclusão" ajax="false" outcome="/manifestacao/inclusao"/>
+		            <p:menuitem value="Consulta" ajax="false" outcome="/manifestacao/consulta"/>
+		            <p:menuitem value="Alteração" ajax="false" outcome="/manifestacao/alteracao"/>
+		            <p:menuitem value="Exclusão" ajax="false" outcome="/manifestacao/exclusao"/>
+		            <p:menuitem value="Listagem" ajax="false" outcome="/manifestacao/listagem"/>
+		            <p:separator />
+		            <p:submenu label="Pesquisar">
+			            <p:menuitem value="Por Protocolo" ajax="false" outcome="/manifestacao/pesquisarProtocolo"/>
+			            <p:menuitem value="Por Usuário" ajax="false" outcome="/manifestacao/pesquisarUsuario"/>
+			            <p:menuitem value="Por Data" ajax="false" outcome="/manifestacao/pesquisarData"/>
+		            </p:submenu>
+		        </p:submenu>			
+		        <p:submenu label="Usuários">
+		            <p:menuitem value="Inclusão" ajax="false" outcome="/usuario/inclusao"/>
+		            <p:menuitem value="Consulta" ajax="false" outcome="/usuario/consulta"/>
+		            <p:menuitem value="Alteração" ajax="false" outcome="/usuario/alteracao"/>
+		            <p:menuitem value="Exclusão" ajax="false" outcome="/usuario/exclusao"/>
+		            <p:separator />
+		            <p:menuitem value="Listagem" ajax="false" outcome="/usuario/listagem"/>
+		        </p:submenu>
+		        <p:submenu label="Funcionários">
+		            <p:menuitem value="Inclusão" ajax="false" outcome="/funcionario/inclusao"/>
+		            <p:menuitem value="Consulta" ajax="false" outcome="/funcionario/consulta"/>
+		            <p:menuitem value="Alteração" ajax="false" outcome="/funcionario/alteracao"/>
+		            <p:menuitem value="Exclusão" ajax="false" outcome="/funcionario/exclusao"/>
+		            <p:separator />
+		            <p:menuitem value="Listagem" ajax="false" outcome="/funcionario/listagem"/>
+		        </p:submenu>
+		        <p:submenu label="Manutenção">
+		        	<p:submenu label="Cidades">
+			            <p:menuitem value="Inclusão" ajax="false" outcome="/cidade/inclusao"/>
+			            <p:menuitem value="Consulta" ajax="false" outcome="/cidade/consulta"/>
+			            <p:menuitem value="Alteração" ajax="false" outcome="/cidade/alteracao"/>
+			            <p:menuitem value="Exclusão" ajax="false" outcome="/cidade/exclusao"/>
+		            </p:submenu>
+		            <p:submenu label="Setores">
+			            <p:menuitem value="Inclusão" ajax="false" outcome="/setor/inclusao"/>
+			            <p:menuitem value="Consulta" ajax="false" outcome="/setor/consulta"/>
+			            <p:menuitem value="Alteração" ajax="false" outcome="/setor/alteracao"/>
+			            <p:menuitem value="Exclusão" ajax="false" outcome="/setor/exclusao"/>
+			         </p:submenu>
+		            <p:submenu label="Assunto">
+			            <p:menuitem value="Inclusão" ajax="false" outcome="/Assunto/inclusao"/>
+			            <p:menuitem value="Consulta" ajax="false" outcome="/Assunto/consulta"/>
+			            <p:menuitem value="Alteração" ajax="false" outcome="/Assunto/alteracao"/>
+			            <p:menuitem value="Exclusão" ajax="false" outcome="/Assunto/exclusao"/>
+		            </p:submenu>
+		        </p:submenu>	
+		        <p:menuitem value="Ajuda" ajax="false" outcome="ajuda"/>
+                <f:facet name="options">
+					<h:form id="formularioTema">
+						<p:themeSwitcher id="defaultSwitcher" value="#{ConfiguracaoVB.tema}">
+							<f:selectItems value="#{ConfiguracaoVB.temas}" />
+					    	<p:ajax listener="#{ConfiguracaoVB.salvarTema}" />
+						</p:themeSwitcher>
+					</h:form>
+				</f:facet>
+			</p:menubar>
+		</h:form> 
+	</body> 
+</html>

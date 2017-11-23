@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+	<h:head>
+	</h:head>
+	<body> 
+        <h1>Ouvidoria Opet</h1> 
+         <div align="center">
+            <h:form id="funcionario">
+            <p:panelGrid id="formulario" style="width:75%;">
+            	<p:focus context="formulario"/>
+                <f:facet name="header">
+                    <p:row>
+                        <p:column colspan="2" style="font-size:14px">
+                            Inclusão de Funcionários
+                        </p:column>
+                    </p:row>
+                </f:facet>
+                <p:row>
+                    <p:column style="width:30%;text-align:right;">
+                        <h:outputText value="Login : " />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="id" value="#{Acesso_FuncionarioVB.login}" size="20" disabled="true" label="Login" />
+                    </p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column style="width:30%;text-align:right;">
+                        <h:outputText  value="Senha : " />
+                    </p:column>
+                    <p:column>
+                        <p:password id="senha" redisplay="true" value="#{Acesso_FuncionarioVB.senha}" size="10" required="true" label="Senha" />
+                    </p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column style="width:30%;text-align:right;">
+                        <h:outputText  value="Nome : " />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="nome" value="#{Acesso_FuncionarioVB.nome}" size="50" required="true" label="Nome" />
+                    </p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column style="width:30%;text-align:right;">
+                        <h:outputText  value="Matrícula : " />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="matricula" value="#{Acesso_FuncionarioVB.matricula}" size="15" required="true" label="Matrícula" />
+                    </p:column>
+                </p:row>
+				
+				<p:row>
+					<p:column style="width:30%;text-align:right;">
+						<h:outputText  value="Estado : " />
+					</p:column>
+					<p:column>
+						<h:panelGroup>
+							<h:selectOneMenu value="#{Acesso_FuncionarioVB.estado}" required="true" label="Estado">
+								<f:selectItem itemValue="#{null}" itemLabel="---Selecione----" noSelectionOption="true" />
+								<!-- 							   	<f:selectItem itemValue="Paraná" itemLabel="Paraná" /> -->
+								<!-- 							   	<f:selectItem itemValue="Santa Catarina" itemLabel="Santa Catarina" /> -->
+								<!-- 							   	<f:selectItem itemValue="Rio Grande do Sul" itemLabel="Rio Grande do Sul" /> -->
+								<!-- 							   	<f:selectItem itemValue="São Paulo" itemLabel="São Paulo" /> -->
+								<!-- 							   	<f:selectItem itemValue="Goiás" itemLabel="Goiás" /> -->
+								<!-- 							   	<f:selectItem itemValue="Alagoas" itemLabel="Alagoas" /> -->
+
+
+								<f:selectItems itemValue="#{estado}" itemLabel="#{estado} - #{estado}" value="#{Acesso_FuncionarioVB.listaCidades}" var="estado"/>
+							   	<!-- Criar lista estados -->
+							   
+							</h:selectOneMenu>
+	    					&nbsp;
+				    		<h:commandButton value="Pesquisar" action="#{Acesso_FuncionarioVB.consultarCidade}"/>
+						</h:panelGroup>
+					</p:column>
+				</p:row>
+				
+				<p:row>
+					<p:column style="width:30%;text-align:right;">
+						<h:outputText  value="Cidade : " />
+					</p:column>
+					<p:column>
+					<!-- Aqui vai um combobox de cidade -->
+						<h:selectOneMenu value="#{Acesso_FuncionarioVB.codigo}" label="Cidade" required="true" disabled="#{!Acesso_FuncionarioVB.edicaoCidade}">
+							<f:selectItem itemValue="#{null}" itemLabel="---Selecione----" noSelectionOption="true" />
+			   				<f:selectItems itemValue="#{cidade.codigo}" itemLabel="#{cidade.codigo} - #{cidade.descricao}" value="#{Acesso_FuncionarioVB.listaCidades}" var="cidade"/>
+			   			</h:selectOneMenu>
+			   			<h:commandButton value="Pesquisar" action="/cidade/inclusao"/>
+		   			</p:column>
+				</p:row>
+				
+				<p:row>
+                       <p:column colspan="2">
+                           <p:messages errorStyle="color:red;margin:8px;" infoStyle="color:blue;margin:8px;" layout="table" />
+                       </p:column>
+                </p:row>
+				
+                   <p:row>
+                       <p:column colspan="2" style="text-align:center;">
+			               <p:commandButton value="Cadastrar" action="#{Acesso_FuncionarioVB.cadastrar}"
+                                            ajax="false" disabled="#{!Acesso_FuncionarioVB.edicaoCidade}"/>
+                           &nbsp;                        
+                           <h:commandButton value="Limpar" action="#{Acesso_FuncionarioVB.limpar}" immediate="true">
+                              <f:setPropertyActionListener target="#{Acesso_FuncionarioVB.tela}" value="incluir" />
+                           </h:commandButton>
+                           &nbsp;
+                           <p:commandButton value="Home" action="#{Acesso_FuncionarioVB.homepage()}" immediate="true"/>
+                       </p:column>
+                   </p:row>
+                   
+            </p:panelGrid>
+          </h:form>
+        </div>         
+	</body> 
+</html>

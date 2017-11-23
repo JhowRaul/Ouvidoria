@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+	<h:head>
+	</h:head>
+	<body> 
+        <h1>Ouvidoria Opet</h1> 
+         <div align="center">
+            <h:form id="funcionario">
+            <p:panelGrid id="formulario" style="width:75%;">
+            	<f:facet name="header">
+                    <p:row>
+                        <p:column colspan="2" style="font-size:14px">
+                            Exclusão de Funcionários
+                        </p:column>
+                    </p:row>
+                </f:facet>
+                
+                <p:row>
+                    <p:column style="width:30%;text-align:right;">
+                        <h:outputText value="Login : " />
+                    </p:column>
+                    <p:column>
+                    	<h:panelGroup>
+                        	<p:inputText id="login" required="true" disabled="{Acesso_FuncionarioVB.edicao}" value="#{Acesso_FuncionarioVB.login}" size="20" label="Login" />
+                        	&nbsp;
+				    		<h:commandButton disabled="#{Acesso_FuncionarioVB.edicao}" value="Pesquisar" action="#{Acesso_FuncionarioVB.consultar}"/>                    
+                    	</h:panelGroup>
+                    </p:column>
+                </p:row>
+                
+                <p:row>
+                    <p:column style="width:30%;text-align:right;">
+	                	<h:outputText value="Nome :" disabled="true"/> 
+	                </p:column>
+	                <p:column>
+						<h:inputText id="nome" disabled="true" value="#{Acesso_FuncionarioVB.nome}" size="50" required="true" label="Nome" />
+					</p:column>
+				</p:row>
+				<p:row>
+                    <p:column style="width:30%;text-align:right;">
+						<h:outputText value="Senha : " disabled="true"/> 
+					</p:column>
+					<p:column>
+						<h:inputSecret disabled="true"  id="senha" redisplay="true" value="#{Acesso_FuncionarioVB.senha}" size="10" required="true" label="Senha" />
+	                </p:column>
+	            </p:row>
+	            <p:row>
+                    <p:column style="width:30%;text-align:right;">
+	                	<h:outputText value="Matrícula :" disabled="true"/> 
+	                </p:column>
+	                <p:column>
+						<h:inputText id="matricula" disabled="true" value="#{Acesso_FuncionarioVB.matricula}" size="50" required="true" label="Matrícula" />
+					</p:column>
+				</p:row>
+				<p:row>
+                    <p:column style="width:30%;text-align:right;">
+						<h:outputText value="Estado : " disabled="true"/> 
+					</p:column>
+					<p:column>
+						<h:inputText disabled="true"  id="estado" value="#{Acesso_FuncionarioVB.estado}" size="10" required="true" label="Estado" />
+	                </p:column>
+	            </p:row>
+	            <p:row>
+                    <p:column style="width:30%;text-align:right;">
+	                	<h:outputText value="Cidade : " disabled="true"/> 
+	                </p:column>
+	                <p:column>
+						<h:inputText disabled="true"  id="descricao" value="#{Acesso_FuncionarioVB.descricao}" size="10" required="true" label="Cidade" />
+	            	</p:column>
+	            </p:row>	
+            
+            
+            <p:row>
+                       <p:column colspan="2">
+                           <p:messages errorStyle="color:red;margin:8px;" infoStyle="color:blue;margin:8px;" layout="table" />
+                       </p:column>
+            </p:row>
+            
+            <p:row>
+                       <p:column colspan="2" style="text-align:center;">
+                           <h:commandButton value="Limpar" disabled="#{!Acesso_FuncionarioVB.edicao}" action="#{Acesso_FuncionarioVB.limpar}" immediate="true">
+                              <f:setPropertyActionListener target="#{Acesso_FuncionarioVB.tela}" value="incluir" />
+                           </h:commandButton>
+                           &nbsp;
+                           <p:commandButton value="Home" action="/index" immediate="true"/>
+                           &nbsp;
+                           <h:commandButton value="Excluir" disabled="#{!Acesso_FuncionarioVB.edicao}" action="#{Acesso_FuncionarioVB.excluir}" ajax="false">
+						   		<f:setPropertyActionListener target="#{Acesso_FuncionarioVB.tela}" value="excluir" />
+						   </h:commandButton>
+                       </p:column>
+            </p:row>      
+            </p:panelGrid>                       
+          </h:form>
+        </div>         
+	</body> 
+</html>

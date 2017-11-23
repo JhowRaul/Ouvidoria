@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+<h1>Ouvidoria Opet</h1> 
+         <div align="center">
+            <h:form id="setor">
+            <p:panelGrid id="formulario" style="width:75%;">
+                <p:focus context="formulario"/>
+                <f:facet name="header">
+                    <p:row>
+                        <p:column colspan="2" style="font-size:14px">
+                            Exclusão de setors
+                        </p:column>
+                    </p:row>
+                </f:facet>
+                <p:row>
+                    <p:column style="width:30%;text-align:right;">
+                        <h:outputText value="Identificador : " />
+                    </p:column>
+                    <p:column>
+                        <h:panelGroup>
+                        <p:inputText id="id" required="true" value="#{setorVB.id}" size="20" label="Identificador" />
+                           &nbsp;
+                           <p:commandButton value="Pesquisar" action="#{setorVB.consultar}" ajax="false"/>
+                        </h:panelGroup>
+                    </p:column>
+                </p:row>
+
+               <p:row>
+                    <p:column style="width:30%;text-align:right;">
+                        <h:outputText  value="Descricao : " />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="id" disabled="true" value="#{setorVB.descricao}" size="50" label="descricao" />
+                    </p:column>
+                </p:row>
+
+               <p:row>
+                    <p:column style="width:30%;text-align:right;">
+                        <h:outputText  value="nome : " />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="nome" disabled="true" value="#{setorVB.nome}" size="50" label="nome" />
+                    </p:column>
+                </p:row>
+                
+                   <p:row>
+                       <p:column colspan="2" style="text-align:center;">
+					       <p:commandButton value="Alterar" disabled="#{!setorVB.edicao}" action="#{setorVB.consultar}" ajax="false">
+								<f:setPropertyActionListener target="#{setorVB.tela}" value="alterar" />
+					       </p:commandButton>
+                           &nbsp;                        
+				            <p:commandButton value="Confirma Exclusão" disabled="#{!setorVB.edicao}" action="#{setorVB.excluir}" ajax="false">
+				                <f:setPropertyActionListener target="#{setorVB.tela}" value="excluir" />
+				            </p:commandButton>
+                           &nbsp;                        
+                            <p:commandButton value="Limpar" action="#{setorVB.limpar}" 
+                                            immediate="true"
+                                            ajax="false">
+                              <f:setPropertyActionListener target="#{setorVB.tela}" value="exluir" />
+                           </p:commandButton>
+                       </p:column>
+                   </p:row>
+                   <p:row>
+                       <p:column colspan="2">
+                           <p:messages />
+                       </p:column>
+                   </p:row>
+            </p:panelGrid>
+            <br/>
+            <p:commandButton value="Home" action="/index" immediate="true"/>
+          </h:form>
+        </div>
+</body> 
+</html>
