@@ -64,20 +64,20 @@
 						<h:panelGroup>
 							<h:selectOneMenu value="#{Acesso_FuncionarioVB.estado}" required="true" label="Estado">
 								<f:selectItem itemValue="#{null}" itemLabel="---Selecione----" noSelectionOption="true" />
-								<!-- 							   	<f:selectItem itemValue="Paraná" itemLabel="Paraná" /> -->
-								<!-- 							   	<f:selectItem itemValue="Santa Catarina" itemLabel="Santa Catarina" /> -->
-								<!-- 							   	<f:selectItem itemValue="Rio Grande do Sul" itemLabel="Rio Grande do Sul" /> -->
-								<!-- 							   	<f:selectItem itemValue="São Paulo" itemLabel="São Paulo" /> -->
-								<!-- 							   	<f:selectItem itemValue="Goiás" itemLabel="Goiás" /> -->
-								<!-- 							   	<f:selectItem itemValue="Alagoas" itemLabel="Alagoas" /> -->
+								<f:selectItem itemValue="Paraná" itemLabel="Paraná" />
+								<f:selectItem itemValue="Santa Catarina" itemLabel="Santa Catarina" />
+								<f:selectItem itemValue="Rio Grande do Sul" itemLabel="Rio Grande do Sul" />
+								<f:selectItem itemValue="São Paulo" itemLabel="São Paulo" />
+								<f:selectItem itemValue="Goiás" itemLabel="Goiás" />
+								<f:selectItem itemValue="Alagoas" itemLabel="Alagoas" />
 
 
-								<f:selectItems itemValue="#{estado}" itemLabel="#{estado} - #{estado}" value="#{Acesso_FuncionarioVB.listaCidades}" var="estado"/>
-							   	<!-- Criar lista estados -->
+								<!--   					<f:selectItems itemValue="#{estado}" itemLabel="#{estado} - #{estado}" value="#{Acesso_FuncionarioVB.listaCidades}" var="estado"/>
+							   	 Criar lista estados -->
 							   
 							</h:selectOneMenu>
 	    					&nbsp;
-				    		<h:commandButton value="Pesquisar" action="#{Acesso_FuncionarioVB.consultarCidade}"/>
+				    		<h:commandButton value="Pesquisar" action="#{Acesso_FuncionarioVB.consultarCidade}" />
 						</h:panelGroup>
 					</p:column>
 				</p:row>
@@ -92,8 +92,10 @@
 							<f:selectItem itemValue="#{null}" itemLabel="---Selecione----" noSelectionOption="true" />
 			   				<f:selectItems itemValue="#{cidade.codigo}" itemLabel="#{cidade.codigo} - #{cidade.descricao}" value="#{Acesso_FuncionarioVB.listaCidades}" var="cidade"/>
 			   			</h:selectOneMenu>
-			   			<h:commandButton value="Pesquisar" action="/cidade/inclusao"/>
-		   			</p:column>
+			   			&nbsp;
+			   			<h:link value="Não Achou? Clique aqui." outcome="/cidade/inclusao" immediate="true" />
+			   		</p:column>
+		   			
 				</p:row>
 				
 				<p:row>
